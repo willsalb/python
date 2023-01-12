@@ -1,2 +1,1 @@
-# python
-Python Repository
+# Python Repository
