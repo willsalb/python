@@ -1,44 +1,19 @@
-import turtle as ttl
-import time
-import random
+import pygame as pg
+from random import randrange
 
-delay = 0.1
-score = 0
-high_score = 0
+pg.init()
+window = 1000
+tile_size = 50
+pg.display.set_caption('Snake Game')
 
-windowScreen = ttl.Screen()
-windowScreen.title('Snake Game')
-windowScreen.bgcolor('black')
+gameOver = False
 
-windowScreen.setup(width=720, height=600)
-windowScreen.tracer(0)
-
-head = ttl.Turtle()
-head.shape("square")
-head.color('white')
-head.penup()
-head.goto(0, 0)
-head.direction = 'Stop'
-
-food = ttl.Turtle()
-colors = random.choice(['red', 'green', 'pink'])
-shapes = random.choice(['square', 'triangle', 'circle'])
-food.speed(0)
-food.shape(shapes)
-food.color(colors)
-food.penup()
-food.goto(0, 100)
-
-pen = ttl.Turtle()
-pen.speed(0)
-pen.shape('square')
-pen.color('white')
-pen.penup()
-pen.hideturtle()
-pen.goto(0, 250)
-pen.write("Score: 0 High Score: 0", align="center", font=("times new roman", 22, "bold"))
-
-
-
-
-windowScreen.mainloop()
+while not gameOver:
+    for event in pg.event.get():
+        if event.type==pg.QUIT:
+            gameOver=True
+    screen.fill('black')
+    #draw the snake, percorrendo a lista de segmentos e desenhar cada segmento da snake em verde usando a função draw.rect
+    [pg.draw.rect(screen, 'green', segment) for segment in segments]
+    
+    clock.tick(60)
